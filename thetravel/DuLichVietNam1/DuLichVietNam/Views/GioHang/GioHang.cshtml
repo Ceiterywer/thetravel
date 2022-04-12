@@ -1,0 +1,90 @@
+﻿
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+@using DuLichVietNam.Models;
+@model List<GioHang>
+<main id="content" class="site-main">
+    <!-- Tittle html -->
+    <section class="inner-banner-wrap">
+        <div class="inner-baner-container" style="background-image: url('/Content/images/footer-bg.jpg'); background-size:initial">
+            <div class="container">
+                <div class="inner-banner-content">
+                    <h1 class="inner-title">GIỎ HÀNG</h1>
+                </div>
+            </div>
+        </div>
+        <div class="inner-shape" style="background-image:url('/Content/images/slider-pattern.png');"></div>
+    </section>
+    <!-- Giỏ hàng -->
+    <div class="cart-section">
+        <div class="container">
+            <div class="cart-list-inner">
+                <form action="#">
+                    @foreach (var item in Model)
+                    {
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <td></td>
+                                        <td> Ảnh Bìa </td>
+                                        <td> Tên Tour </td>
+                                        <td> Thời gian </td>
+                                        <td> Giá Tiền </td>
+                                        <td> Số lượng </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        @using (Html.BeginForm("CapNhatGioHang", "GioHang", new { @MaSP = item.iMaTour }))
+                                        {
+
+                                            <td> @Html.ActionLink("Xóa", "XoaGioHang", new { @iMasp = item.iMaTour })</td>
+                                            <td>
+                                                <span class="cartImage"><img src="~/Content/images/@item.sAnhbia"></span>
+                                            </td>
+                                            <td data-column="Product Name"><a href="@Url.Action("ChiTietTour", "WebDuLich", new { id = item.iMaTour })">@item.sTenTour</td>
+                                            <td>@item.sThoiGian</td>
+                                            <td data-column="Price">@item.dGiaTour</td>
+                                            <td data-column="Quantity" class="count-input">
+                                                <div>
+                                                    <a class="minus-btn" href="#"><i class="fa fa-minus"></i></a>
+                                                    <input class="quantity" min="1" type="text" name="txtSoLuong" value="@item.iSL" style="text-align:center; border:none">
+                                                    <a class="plus-btn" href="#"><i class="fa fa-plus"></i></a>
+                                                </div>
+                                            </td>
+                                            
+
+                                        }
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                            <div class="updateArea">
+                                <a href="" class="outline-primary update-btn">@item.dGiaTour VND</a>
+                            </div>
+                            
+                        </div>
+                    }
+                <input class="submit" type="submit" value="Cập nhật" />
+                    <div class="box" style="text-align:right; font-weight: bold; color:crimson;">
+                        <a href="" class="outline-primary update-btn">Tổng Tiền: @ViewBag.TongTien VND</a>
+                    </div>
+                    <div class="checkBtnArea text-right">
+                        <a class="submit" href="@Url.Action("DatTour", "GioHang")">Đặt hàng</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+
+
+
+
+
+

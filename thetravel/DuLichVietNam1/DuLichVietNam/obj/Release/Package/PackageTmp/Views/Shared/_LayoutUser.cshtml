@@ -1,0 +1,252 @@
+﻿<!DOCTYPE html>
+
+<html lang="vi">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="~/Content/images/vn-travel-icon.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/vendors/bootstrap/css/bootstrap.min.css" media="all">
+    <!-- Fonts Awesome CSS -->
+    <link rel="stylesheet" type="text/css" href="~/vendors/fontawesome/css/all.min.css">
+    <!-- jquery-ui css -->
+    <link rel="stylesheet" type="text/css" href="~/vendors/jquery-ui/jquery-ui.min.css">
+    <!-- modal video css -->
+    <link rel="stylesheet" type="text/css" href="~/vendors/modal-video/modal-video.min.css">
+    <!-- light box css -->
+    <link rel="stylesheet" type="text/css" href="~/vendors/lightbox/dist/css/lightbox.min.css">
+    <!-- slick slider css -->
+    <link rel="stylesheet" type="text/css" href="~/vendors/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="~/vendors/slick/slick-theme.css">
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="~/Content/style.css">
+    <title>Du lịch Việt Nam</title>
+</head>
+<body class="home">
+    <div id="siteLoader" class="site-loader">
+        <div class="preloader-content">
+            <img src="~/Content/images/loader1.gif" alt="">
+        </div>
+    </div>
+    <div id="page" class="full-page">
+        <header id="masthead" class="site-header header-primary">
+            <!-- header html start -->
+            <div class="top-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 d-none d-lg-block">
+                            <div class="header-contact-info">
+                                <ul>
+                                    <li>
+                                        <a href="#"><i class="fas fa-phone-alt"></i> (+84) 38 314 5754</a>
+                                    </li>
+                                    <li>
+                                        <a href="mailto:info@Travel.com"><i class="fas fa-envelope"></i> trananhduyvjitboiz@gmail.com</a>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-map-marker-alt"></i> 475A Điện Biên Phủ, P25, Bình Thạnh, Tp.HCM
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 d-flex justify-content-lg-end justify-content-between">
+                            <div class="header-social social-links">
+                                <ul>
+                                    <li><a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="header-search-icon">
+                                <button class="search-icon">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-header">
+                <div class="container d-flex justify-content-between align-items-center">
+                    <div class="site-identity">
+                        <h1 class="site-title">
+                            <a href="@Url.Action("Index", "WebDuLich")">
+
+                                <img class="white-logo" src="~/Content/images/vn-travel-logo-1.png" alt="logo">
+                                <img class="black-logo" src="~/Content/images/vn-travel-logo-2.png" alt="logo">
+                            </a>
+                        </h1>
+                    </div>
+                    <div class="main-navigation d-none d-lg-block">
+                        <nav id="navigation" class="navigation" >
+                            <ul>
+                                <li>
+                                    <a href="@Url.Action("Index", "WebDuLich")">Home</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Tour", "WebDuLich")">Tour</a>
+                                </li>
+                                <li>
+                                    @Html.Action("DiaDiem", "WebDuLich")
+                                    <a href="javascript:;">Địa Điểm</a>
+                                </li>
+                                <li>
+                                    @Html.Action("DD_KhachSan", "WebDuLich")
+                                    <a href="javascript:;">Khách Sạn</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("TinTuc", "WebDuLich")">Tin Tức</a>
+                                </li>
+
+
+                                <li>
+                                    @Html.Action("GioHangPartial", "GioHang")
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="header-btn">
+                        <a href="@Url.Action("DangNhap", "NguoiDung")" class="button-primary">ĐĂNG NHẬP</a>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="mobile-menu-container"></div>
+        </header>
+        <div>
+            @RenderBody()
+            
+        </div>
+        <footer id="colophon" class="site-footer footer-primary" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/Content/images/footer-bg.jpg'); background-repeat: no-repeat; ">
+            <div class="top-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6">
+                            <aside class="widget widget_text">
+                                <h3 class="widget-title">
+                                    VỀ CHÚNG TÔI
+                                </h3>
+                                <div class="textwidget widget-text">
+                                    Đây là một trang web được tạo ra nhằm mục đích học tập và rèn luyện kĩ năng thiết kế website.
+                                </div>
+
+                            </aside>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <aside class="widget widget_text">
+                                <h3 class="widget-title">THÔNG TIN LIÊN HỆ</h3>
+                                <div class="textwidget widget-text">
+                                    Hãy liên hệ với chúng tôi để biết thêm thông tin chi tiết.
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fas fa-phone-alt"></i>
+                                                (+84) 38 314 5754
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fas fa-envelope"></i>
+                                                trananhduyvjitboiz@gmail.com
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            475A Điện Biên Phủ, Phường 25, Bình Thạnh, Thành phố Hồ Chí Minh.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </aside>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <aside class="widget widget_recent_post">
+                                <h3 class="widget-title">TIN TỨC GẦN ĐÂY</h3>
+                                <ul>
+                                    <li>
+                                        <h5>
+                                            <a href="#">Life is a beautiful journey not a destination</a>
+                                        </h5>
+                                        <div class="entry-meta">
+                                            <span class="post-on">
+                                                <a href="#">August 17, 2021</a>
+                                            </span>
+                                            <span class="comments-link">
+                                                <a href="#">No Comments</a>
+                                            </span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <h5>
+                                            <a href="#">Take only memories, leave only footprints</a>
+                                        </h5>
+                                        <div class="entry-meta">
+                                            <span class="post-on">
+                                                <a href="#">August 17, 2021</a>
+                                            </span>
+                                            <span class="comments-link">
+                                                <a href="#">No Comments</a>
+                                            </span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </aside>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <aside class="widget widget_newslatter">
+                                <h3 class="widget-title">THAM GIA CÙNG CHÚNG TÔI</h3>
+                                <div class="widget-text">
+                                    Hãy để lại gmail của bạn để chúng tôi có thể tư vấn tốt hơn.
+                                </div>
+                                <form class="newslatter-form">
+                                    <input type="email" name="s" placeholder="Email của bạn...">
+                                    <input type="submit" name="s" value="GỬI NGAY">
+                                </form>
+                            </aside>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <a id="backTotop" href="#" class="to-top-icon">
+            <i class="fas fa-chevron-up"></i>
+        </a>
+        <!-- custom search field html -->
+        <div class="header-search-form">
+            <div class="container">
+                <div class="header-search-container">
+                    <form class="search-form" role="search" method="get">
+                        <input type="text" name="s" placeholder="Enter your text...">
+                    </form>
+                    <a href="#" class="search-close">
+                        <i class="fas fa-times"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- header html end -->
+    </div>
+
+
+
+
+    <!-- JavaScript -->
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+    <script src="~/vendors/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/vendors/jquery-ui/jquery-ui.min.js"></script>
+    <script src="~/vendors/countdown-date-loop-counter/loopcounter.js"></script>
+    <script src="~/Scripts/jquery.counterup.js"></script>
+    <script src="~/vendors/modal-video/jquery-modal-video.min.js"></script>
+    <script src="~/vendors/masonry/masonry.pkgd.min.js"></script>
+    <script src="~/vendors/lightbox/dist/js/lightbox.min.js"></script>
+    <script src="~/vendors/slick/slick.min.js"></script>
+    <script src="~/Scripts/jquery.slicknav.js"></script>
+    <script src="~/Scripts/custom.min.js"></script>
+</body>
+</html>

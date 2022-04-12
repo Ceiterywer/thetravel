@@ -1,0 +1,100 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="~/Content/images/vn-travel-icon.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/vendors/bootstrap/css/bootstrap.min.css" media="all">
+    <!-- Fonts Awesome CSS -->
+    <link rel="stylesheet" type="text/css" href="~/vendors/fontawesome/css/all.min.css">
+    <!-- jquery-ui css -->
+    <link rel="stylesheet" type="text/css" href="~/vendors/jquery-ui/jquery-ui.min.css">
+    <!-- modal video css -->
+    <link rel="stylesheet" type="text/css" href="~/vendors/modal-video/modal-video.min.css">
+    <!-- light box css -->
+    <link rel="stylesheet" type="text/css" href="~/vendors/lightbox/dist/css/lightbox.min.css">
+    <!-- slick slider css -->
+    <link rel="stylesheet" type="text/css" href="~/vendors/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="~/vendors/slick/slick-theme.css">
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="~/Content/style.css">
+</head>
+<body>
+    <div id="siteLoader" class="site-loader">
+        <div class="preloader-content">
+            <img src="~/Content/images/loader1.gif" alt="">
+        </div>
+    </div>
+    <div id="page" class="full-page">
+        <header id="masthead" class="site-header header-primary">
+            <!-- header html start -->
+            <div class="top-header">
+            </div>
+            <div class="bottom-header">
+                <div class="container d-flex justify-content-between align-items-center">
+                    <div class="site-identity">
+                        <h1 class="site-title">
+                            <a href="@Url.Action( "Index", "Admin")">
+                                <img class="white-logo" src="~/Content/images/vn-travel-logo-1.png" alt="logo">
+                                <img class="black-logo" src="~/Content/images/vn-travel-logo-2.png" alt="logo">
+                            </a>
+                        </h1>
+                    </div>
+                    <div class="main-navigation d-none d-lg-block">
+                        <nav id="navigation" class="navigation">
+                            <ul>
+                                <li>
+                                    @Html.ActionLink("Home", "Index", "Admin")
+                                </li>
+                                <li>
+                                    @Html.ActionLink("Quản lý Tour", "Tour", "Admin")
+                                </li>
+                                <li>
+                                    @Html.ActionLink("Quản lý Tin tức", "QuanLyTinTuc", "Admin")
+                                </li>
+                                <li>
+                                    @Html.ActionLink("Quản lý Phương Tiện", "PhuongTien", "Admin")
+                                </li>
+                                <li>
+                                    @Html.ActionLink("Quản lý Khách Sạn", "Khachsan", "Admin")
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="header-btn">
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-menu-container"></div>
+        </header>
+        <div class="banner-inner-wrap" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/Content/images/home-bg-1.jpg'); background-repeat: no-repeat;">
+            <div class="overlay"></div>
+        </div>
+        <!-- JavaScript -->
+        <script src="~/Scripts/jquery.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+        <script src="~/vendors/bootstrap/js/bootstrap.min.js"></script>
+        <script src="~/vendors/jquery-ui/jquery-ui.min.js"></script>
+        <script src="~/vendors/countdown-date-loop-counter/loopcounter.js"></script>
+        <script src="~/Scripts/jquery.counterup.js"></script>
+        <script src="~/vendors/modal-video/jquery-modal-video.min.js"></script>
+        <script src="~/vendors/masonry/masonry.pkgd.min.js"></script>
+        <script src="~/vendors/lightbox/dist/js/lightbox.min.js"></script>
+        <script src="~/vendors/slick/slick.min.js"></script>
+        <script src="~/Scripts/jquery.slicknav.js"></script>
+        <script src="~/Scripts/custom.min.js"></script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+﻿@model PagedList.PagedList<DuLichVietNam.Models.PHUONGTIEN>
+@using PagedList.Mvc;
+@using DuLichVietNam.Models
+@{
+    ViewBag.Title = "PhuongTien";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<body class="home">
+    <!-- Tittle html -->
+    <section class="inner-banner-wrap">
+        <div class="inner-baner-container" style="background-image: url('/Content/images/footer-bg.jpg'); background-size:initial">
+            <div class="container">
+                <div class="inner-banner-content">
+                    <h1 class="inner-title">QUẢN LÝ PHƯƠNG TIỆN</h1>
+                </div>
+            </div>
+        </div>
+        <div class="inner-shape" style="background-image:url('/Content/images/slider-pattern.png');"></div>
+    </section>
+    <section class="package-section">
+        <div class="cart-section">
+            <div class="container">
+                <div class="cart-list-inner">
+                    <form action="#">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr style="text-align:center;">
+                                        <td> Tên Phương Tiện</td>
+                                        <td> Loại Phương Tiện </td>
+                                        <td>EDIT</td>
+                                        <td></td>
+                                    </tr>
+                                </thead>
+                                @foreach (var item in Model)
+                                {
+                                    <tbody style="text-align:center;">
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.MaPT)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.LoaiPT)
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Sửa", "Suaphuongtien", new { id = item.MaPT })
+                                            </td>
+
+                                            
+                                        </tr>
+                                    </tbody>
+                                }
+                            </table>
+                            <div class="btn-wrap text-center">
+                                <a class="button-primary" href="@Url.Action("ThemmoiPT", "Admin" )">Thêm Phương Tiện</a>
+                            </div>
+                        </div>
+                    </form>
+                    <br />
+                    <br />
+                    <div class="MenuTrang" style="margin:auto">
+                        @Html.PagedListPager(Model, page => Url.Action("PhuongTien", new { page = page }))
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+

@@ -1,0 +1,11 @@
+﻿@model IEnumerable<DuLichVietNam.Models.DIADIEM>
+<ul>
+    <li>
+        @foreach (var dd in Model)
+        {
+            <a href="@Url.Action("SPtheoDiaDiem", "WebDuLich", new { id = dd.MaDD})">
+                @dd.TenDD
+            </a>
+        }
+    </li>
+</ul>

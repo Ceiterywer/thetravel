@@ -1,0 +1,82 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="~/Content/images/vn-travel-icon.png">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/admin_login_form/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/admin_login_form/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/admin_login_form/fonts/iconic/css/material-design-iconic-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/admin_login_form/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/admin_login_form/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/admin_login_form/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/admin_login_form/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/admin_login_form/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/admin_login_form/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/admin_login_form/css/main.css">
+    <!--===============================================================================================-->
+    <title>Du lịch Việt Nam</title>
+</head>
+<body class="img js-fullheight" style="background-image: url('/Content/user_login_form/user-login-images/bg.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover;">
+    <div class="limiter">
+        <div class="container-login100">
+            @using (Html.BeginForm())
+            {
+                @Html.ValidationSummary(true)
+                <div class="wrap-login100 p-t-85 p-b-20">
+                    <form class="login100-form validate-form">
+                        <span class="login100-form-avatar">
+                            <img src="~/Content/images/admin-icon.png" alt="Admin">
+                        </span>
+
+                        <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate="Enter username">
+                            <input id="" type="text" class="form-control" placeholder="Username" @Html.TextBox("TenDN")
+                            <p style="color:red">@ViewData["Loi1"]</p>
+                        </div>
+
+                        <div class="wrap-input100 validate-input m-b-50" data-validate="Enter password">
+                            <input id="password-field" type="password" class="form-control" placeholder="Password" @Html.Password("Matkhau")
+                            <span toggle="#password-field"></span>
+                            <p style="color:red">@ViewData["Loi2"]</p>
+                        </div>
+
+                        <div class="container-login100-form-btn">
+                            <button type="submit" class="form-control btn btn-primary submit px-3" href="@Url.Action("Tour", "Admin" )">Đăng nhập</button>
+                        </div>
+                    </form>
+                </div>
+             }
+        </div>
+    </div>
+
+
+    <div id="dropDownSelect1"></div>
+
+
+    <!-- *Scripts* -->
+    <script src="~/Content/admin_login_form/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="~/Content/admin_login_form/vendor/animsition/js/animsition.min.js"></script>
+    <script src="~/Content/admin_login_form/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/Content/admin_login_form/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Content/admin_login_form/vendor/select2/select2.min.js"></script>
+    <script src="~/Content/admin_login_form/vendor/daterangepicker/moment.min.js"></script>
+    <script src="~/Content/admin_login_form/vendor/daterangepicker/daterangepicker.js"></script>
+    <script src="~/Content/admin_login_form/vendor/countdowntime/countdowntime.js"></script>
+    <script src="~/Content/admin_login_form/js/main.js"></script>
+</body>
+</html>

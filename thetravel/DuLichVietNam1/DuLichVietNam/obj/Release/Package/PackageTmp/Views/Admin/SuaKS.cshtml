@@ -1,0 +1,79 @@
+﻿@model DuLichVietNam.Models.KHACHSAN
+@{
+    ViewBag.Title = "SuaKS";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<body class="home">
+    <section class="inner-banner-wrap">
+        <div class="inner-baner-container" style="background-image: url('/Content/images/footer-bg.jpg'); background-size:initial">
+            <div class="container">
+                <div class="inner-banner-content">
+                    <h1 class="inner-title">QUẢN LÝ KHÁCH SẠN</h1>
+                </div>
+            </div>
+        </div>
+        <div class="inner-shape" style="background-image:url('/Content/images/slider-pattern.png');"></div>
+    </section>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.MaKS)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.MaKS, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div style="font:18px; padding: 5px 0 0 5px"> @Model.MaKS </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.TenKS, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div style="font:18px; padding: 5px 0 0 5px"> @Model.TenKS </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.DacDiem, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div style="font:18px; padding: 5px 0 0 5px"> @Model.DacDiem </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.TongQuan, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    <textarea name="Mota">@Model.TongQuan</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.AnhKS, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    Chọn ảnh mới
+                    <input type="file" name="fileUpload" />
+                    <img src="@Url.Content("~/Content/images/"+ Model.AnhKS)" width="120px" /> (Ảnh hiện tại)
+                    @ViewBag. Thongbao
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.MaPLKS, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div style="font:18px; padding: 5px 0 0 5px"> @Model.MaPLKS </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+
+    <div>
+        @Html.ActionLink("Trở về", "Index")
+    </div>
+</body>

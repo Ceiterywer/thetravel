@@ -1,0 +1,48 @@
+﻿@model DuLichVietNam.Models.PHUONGTIEN
+@{
+    ViewBag.Title = "ThemmoiPT";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm("ThemmoiPT", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <section class="inner-banner-wrap">
+        <div class="inner-baner-container" style="background-image: url('/Content/images/footer-bg.jpg'); background-size:initial">
+            <div class="container">
+                <div class="inner-banner-content">
+                    <h1 class="inner-title">THÊM MỚI PHƯƠNG TIỆN</h1>
+                </div>
+            </div>
+        </div>
+        <div class="inner-shape" style="background-image:url('/Content/images/slider-pattern.png');"></div>
+    </section>
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaPT, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MaPT, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MaPT, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.LoaiPT, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LoaiPT, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LoaiPT, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Thêm phương tiện" class="btn btn-default" />
+        </div>
+    </div>
+}
+<div>
+    @Html.ActionLink("Về Trang Quản Lý Phương Tiện", "PhuongTien")
+</div>

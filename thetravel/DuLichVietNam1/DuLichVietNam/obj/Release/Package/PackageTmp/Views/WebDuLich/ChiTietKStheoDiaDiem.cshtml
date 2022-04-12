@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "ChiTietKStheoDiaDiem";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<main id="content" class="site-main">
+    <!-- Inner Banner html start-->
+    <section class="inner-banner-wrap">
+        <div class="inner-baner-container" style="background-image: url('/Content/images/footer-bg.jpg'); background-size:initial">
+            <div class="container">
+                <div class="inner-banner-content">
+                    <h1 class="inner-title">CHI TIẾT KHÁCH SẠN</h1>
+                </div>
+            </div>
+        </div>
+        <div class="inner-shape" style="background-image:url('/Content/images/slider-pattern.png');"></div>
+    </section>
+    <!-- Inner Banner html end-->
+    <div class="single-tour-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="single-tour-inner">
+                        <h2>@Model.TenKS </h2>
+                        <figure class="feature-image">
+                            <img src="~/Content/images/@Model.AnhKS" style="background-size:cover" alt="">
+                        </figure>
+                        <div class="tab-container">
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="overview-tab" data-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">THÔNG TIN</a>
+                                </li>
+                            </ul>
+                            <div class="package-price">
+                                <h6 style="color:red">
+                                    <p style="font-size: 15px"><span style="font-family:Arial, Helvetica, sans-serif">@Model.DacDiem</span></p>
+                                </h6>
+                            </div>
+                            <div class="tab-content" id="myTabContent">
+                                <!--Thông tin-->
+                                <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
+                                    <div class="overview-content"></div>
+                                    <p>@Model.TongQuan</p>
+                                </div>
+                                <div class="review-area">
+                                    <span class="review-text">(25 reviews)</span>
+                                    <div class="rating-start" title="Rated 5 out of 5">
+                                        <span style="width: 60%"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+

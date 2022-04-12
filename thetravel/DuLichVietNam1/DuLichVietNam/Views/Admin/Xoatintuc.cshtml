@@ -1,0 +1,55 @@
+﻿@model DuLichVietNam.Models.TINTUC
+@{
+    ViewBag.Title = "Xoatintuc";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<body class="home">
+    <section class="inner-banner-wrap">
+        <div class="inner-baner-container" style="background-image: url('/Content/images/footer-bg.jpg'); background-size:initial">
+            <div class="container">
+                <div class="inner-banner-content">
+                    <h1 class="inner-title">QUẢN LÝ TIN TỨC</h1>
+                </div>
+            </div>
+        </div>
+        <div class="inner-shape" style="background-image:url('/Content/images/slider-pattern.png');"></div>
+    </section>
+
+    <h3>Bạn có muốn xóa Tin Tức này không</h3>
+    <div>
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    Tên Tour:
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.TenTT)
+                </dd>
+                <dt>
+                    Mô tả:
+                </dt>
+                <dd style="width:600px; text-align:justify">
+                    @Html.DisplayFor(model => model.NoiDung)
+                </dd>
+                <dt>
+                    Ảnh bìa:
+                </dt>
+                <dd>
+                    <img src="@Url.Content("~/Content/images/"+ Model.Anhbia)" width="120px" />
+                </dd>
+            </dl>
+        </div>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Trở Về", "TinTuc")
+            </div>
+        }
+    </div>
+</body>

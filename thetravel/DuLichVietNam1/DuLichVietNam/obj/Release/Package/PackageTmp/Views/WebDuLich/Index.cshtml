@@ -1,0 +1,226 @@
+﻿
+@using DuLichVietNam.Models;
+@helper Truncate(string input, int length)
+{
+    if (input.Length < length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length)<text>...</text>
+    }
+}
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<main id="content" class="site-main">
+    <!-- Home slider html start -->
+    <section class="home-slider-section">
+        <div class="home-slider">
+            <div class="home-banner-items">
+                <div class="banner-inner-wrap" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/Content/images/home-bg-1.jpg'); background-repeat: no-repeat;"></div>
+                <div class="banner-content-wrap">
+                    <div class="container">
+                        <div class="banner-content text-center">
+                            <h2 class="banner-title">KHÁM PHÁ ĐẤT NƯỚC VIỆT NAM</h2>
+                            <a href="#" class="button-primary">Tìm hiểu thêm</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="overlay"></div>
+            </div>
+            <div class="home-banner-items">
+                <div class="banner-inner-wrap" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/Content/images/home-bg-2.jpg'); background-repeat: no-repeat;"></div>
+                <div class="banner-content-wrap">
+                    <div class="container">
+                        <div class="banner-content text-center">
+                            <h2 class="banner-title">TRẢI NGHIỆM VĂN HÓA MỚI MẺ</h2>
+                            <a href="#" class="button-primary">Tìm hiểu thêm</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="overlay"></div>
+            </div>
+            <div class="home-banner-items">
+                <div class="banner-inner-wrap" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/Content/images/home-bg-3.jpg'); background-repeat: no-repeat;"></div>
+                <div class="banner-content-wrap">
+                    <div class="container">
+                        <div class="banner-content text-center">
+                            <h2 class="banner-title">TRẢI NGHIỆM VĂN HÓA MỚI MẺ</h2>
+                            <a href="#" class="button-primary">Tìm hiểu thêm</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="overlay"></div>
+            </div>
+        </div>
+    </section>
+    <section class="destination-section">
+        <div class="trip-search-section shape-search-section">
+            <div class="slider-shape" style="background-image:url('/Content/images/slider-pattern.png');"></div>
+        </div>
+        <div class="container">
+            <div class="section-heading text-center">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <h5 class="dash-style"></h5>
+                        <h2>CÁC ĐỊA ĐIỂM NỔI TIẾNG</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="destination-inner destination-three-column">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="desti-item overlay-desti-item">
+                                    <figure class="desti-image">
+                                        <img src="~/Content/images/sapa-1.jpg" style="width:322px; height:555px" alt="">
+                                    </figure>
+                                    <div class="meta-cat bg-meta-cat">
+                                        <a href="#">LÀO CAI</a>
+                                    </div>
+                                    <div class="desti-content">
+                                        <h3>
+                                            <a href="#">SAPA</a>
+                                        </h3>
+                                        <div class="rating-start" title="Rated 5 out of 4">
+                                            <span style="width: 53%"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="desti-item overlay-desti-item">
+                                    <figure class="desti-image">
+                                        <img src="~/Content/images/hcm-1.jpg" style="width:322px; height:555px" alt="">
+                                    </figure>
+                                    <div class="meta-cat bg-meta-cat">
+                                        <a href="#">TP.HCM</a>
+                                    </div>
+                                    <div class="desti-content">
+                                        <h3>
+                                            <a href="#">LANDMARK</a>
+                                        </h3>
+                                        <div class="rating-start" title="Rated 5 out of 5">
+                                            <span style="width: 100%"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="row">
+                            <div class="col-md-6 col-xl-12">
+                                <div class="desti-item overlay-desti-item">
+                                    <figure class="desti-image">
+                                        <img src="~/Content/images/vinh-ha-long-1.jpg" style="width:460px; height:263px" alt="">
+                                    </figure>
+                                    <div class="meta-cat bg-meta-cat">
+                                        <a href="#">QUẢNG NINH</a>
+                                    </div>
+                                    <div class="desti-content">
+                                        <h3>
+                                            <a href="#">VỊNH HẠ LONG</a>
+                                        </h3>
+                                        <div class="rating-start" title="Rated 5 out of 5">
+                                            <span style="width: 100%"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xl-12">
+                                <div class="desti-item overlay-desti-item">
+                                    <figure class="desti-image">
+                                        <img src="~/Content/images/vungtau-1.jpg" style="width:460px; height:263px" alt="">
+                                    </figure>
+                                    <div class="meta-cat bg-meta-cat">
+                                        <a href="#">BÀ RỊA - VŨNG TÀU</a>
+                                    </div>
+                                    <div class="desti-content">
+                                        <h3>
+                                            <a href="#">VŨNG TÀU</a>
+                                        </h3>
+                                        <div class="rating-start" title="Rated 5 out of 4">
+                                            <span style="width: 80%"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Home packages section html start -->
+    <section class="package-section">
+        <div class="trip-search-section shape-search-section">
+            <div class="slider-shape" style="background-image:url('/Content/images/slider-pattern.png');"></div>
+        </div>
+        <div class="container">
+            <div class="section-heading text-center">
+                <div class="row">
+
+                    <div class="col-lg-8 offset-lg-2">
+                        <h5 class="dash-style"></h5>
+                        <h2>TOUR NỔI BẬT</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="package-inner">
+                <div class="row">
+                    @foreach (var tour in Model)
+                    {
+                        <div class="col-lg-4 col-md-6">
+                            <div class="package-wrap">
+                                <figure class="feature-image">
+                                    <a href="@Url.Action("ChiTietTour", "WebDuLich", new { id = tour.MaTour })">
+                                        <img src="~/Content/images/@tour.Anhbia" style="width:365px; height:305px;">
+                                    </a>
+                                </figure>
+                                <div class="package-price">
+                                    <h6>
+                                        <span style="font-family:Arial, Helvetica, sans-serif">@tour.GiaTour VND </span>
+                                    </h6>
+                                </div>
+                                <div class="package-content-wrap">
+                                    <div class="package-content">
+                                        <h3 style="margin-top: 20px;">
+                                            <span>@Truncate(tour.TenTour, 30)</span>
+                                        </h3>
+                                        <p>@Truncate(tour.Mota, 100)</p>
+                                        <div class="review-area">
+                                            <span class="review-text">(25 reviews)</span>
+                                            <div class="rating-start" title="Rated 5 out of 5">
+                                                <span style="width: 60%"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="btn-wrap">
+                                            <a href="@Url.Action("ChiTietTour", "WebDuLich", new { id = tour.MaTour })">
+                                                Chi Tiết
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="btn-wrap text-center">
+                    <a class="button-primary" href="@Url.Action("Tour", "WebDuLich")">XEM THÊM</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- packages html end -->
+    <!-- Home blog section html start -->
+    
+    <!-- blog html end -->
+</main>
+

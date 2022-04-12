@@ -1,0 +1,96 @@
+﻿@model PagedList.PagedList<DuLichVietNam.Models.TINTUC>
+@using PagedList.Mvc;
+@using DuLichVietNam.Models
+@helper Truncate(string input, int length)
+{
+    if (input.Length < length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length)<text>...</text>
+    }
+}
+@{
+    ViewBag.Title = "TinTuc";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<style>
+    .anh-bia{
+        width: 265px;
+        height: 220px;
+    }
+</style>
+<body class="home">
+    <!-- Tittle html -->
+    <section class="inner-banner-wrap">
+        <div class="inner-baner-container" style="background-image: url('/Content/images/footer-bg.jpg'); background-size:initial">
+            <div class="container">
+                <div class="inner-banner-content">
+                    <h1 class="inner-title">QUẢN LÝ TIN TỨC</h1>
+                </div>
+            </div>
+        </div>
+        <div class="inner-shape" style="background-image:url('/Content/images/slider-pattern.png');"></div>
+    </section>
+    <section class="package-section">
+        <div class="cart-section">
+            <div class="container">
+                <div class="cart-list-inner">
+                    <form action="#">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr style="text-align:center;">
+                                        <td> Tên Tin Tức</td>
+                                        <td> Nội Dung </td>
+                                        <td> Ảnh Bìa </td>
+                                        <td></td>
+                                        <td>EDIT</td>
+                                        <td></td>
+                                    </tr>
+                                </thead>
+                                @foreach (var item in Model)
+                                {
+                                    <tbody style="text-align:center;">
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.TenTT)
+                                            </td>
+                                            <td>
+                                                @Truncate(item.NoiDung, 20)
+                                            </td>
+                                            <td class="anh-bia">
+                                                <img src="@Url.Content("~/Content/images/" + item.Anhbia)" />
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Sửa", "Suatintuc", new { id = item.MaTT })
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Chi Tiết", "ChitietTinTuc", new { id = item.MaTT })
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Xóa", "Xoatintuc", new { id = item.MaTT })
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                }
+                            </table>
+                            <div class="btn-wrap text-center">
+                                <a class="button-primary" href="@Url.Action("ThemmoiTinTuc", "Admin" )">Thêm tin tức</a>
+                            </div>
+                        </div>
+                    </form>
+                    <br />
+                    <br />
+                    <div class="MenuTrang" style="margin:auto">
+                        @Html.PagedListPager(Model, page => Url.Action("TinTuc", new { page = page }))
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+

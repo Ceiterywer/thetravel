@@ -1,0 +1,142 @@
+﻿@using DuLichVietNam.Models
+@{
+    ViewBag.Title = "DatTour";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<main id="content" class="site-main">
+    <!-- Inner Banner html start-->
+    <section class="inner-banner-wrap">
+        <div class="inner-baner-container"  style="background-image: url('/Content/images/footer-bg.jpg'); background-size:initial">
+            <div class="container">
+                <div class="inner-banner-content">
+                    <h1 class="inner-title">THANH TOÁN</h1>
+                </div>
+            </div>
+        </div>
+        <div class="inner-shape" style="background-image:url('/Content/images/slider-pattern.png');"></div>
+    </section>
+    <!-- Inner Banner html end-->
+    <div class="step-section booking-section">
+        <div class="container">
+            <div class="step-link-wrap">
+                <div class="step-item active">
+                    Your cart
+                    <a href="#" class="step-icon"></a>
+                </div>
+                <div class="step-item active">
+                    Your Details
+                    <a href="#" class="step-icon"></a>
+                </div>
+                <div class="step-item">
+                    Finish
+                    <a href="#" class="step-icon"></a>
+                </div>
+            </div>
+            <h2 style="text-align:center">ĐƠN HÀNG</h2>
+            <table align="center" border="1">
+                <tr style="text-align:center; font-weight:bold">
+                    <td> Ảnh Bìa </td>
+                    <td> Tên Tour </td>
+                    <td> Thời gian </td>
+                    <td> Giá Tiền </td>
+                    <td> Số lượng </td>
+                </tr>
+                @foreach (var item in Model)
+                {
+            <tr style="text-align:center; font-weight:bold">
+                <td><img src="~/Content/images/@item.sAnhbia"></td>
+                <td> @item.sTenTour</td>
+                <td>@item.sThoiGian</td>
+                <td>@item.dGiaTour VNĐ</td>
+                @using (Html.BeginForm("CapnhatGiohang", "GioHang", new { @iMasp = item.iMaTour }))
+                {
+                    <td>
+                        <input type="number" min="1" value="@item.iSL" style="text-align: center" />
+                    </td>
+                }
+            </tr>
+                }
+                <tr style="font-weight:bold; text-align: right">
+                    <td colspan="7">
+                        @Html.ActionLink("Trở Về Giỏ Hàng", "GioHang", "GioHang")
+                    </td>
+                </tr>
+            </table>
+            <h2 style="text-align:center">THÔNG TIN ĐẶT HÀNG</h2>
+            @{
+                TTKHACHHANG kh = (TTKHACHHANG)Session["Taikhoan"];
+            }
+            <div class="row">
+                <div class="col-lg-8 right-sidebar">
+                    <!-- step one form html start -->
+                    <div class="booking-form-wrap">
+                        <div class="booking-content">
+                            <div class="form-title">
+                                <span>1</span>
+                                <h3>Thông tin</h3>
+                            </div>
+                            <div class="row">
+                                <table align="center">
+                                    @using (Html.BeginForm())
+                                    {
+                                        @Html.ValidationSummary(true)
+                                        <tr style="height:40px">
+                                            <td>Họ tên:</td>
+                                            <td style="font-weight:bold"> @kh.HotenKH </td>
+                                        </tr>
+                                        <tr style="height:40px">
+                                            <td>SĐT:</td>
+                                            <td style="font-weight:bold"> @kh.SDT </td>
+                                        </tr>
+                                        <tr style="height:40px">
+                                            <td>Email:</td>
+                                            <td style="font-weight:bold"> @kh.Email </td>
+                                        </tr>
+                                        <tr style="height:40px">
+                                                <td>Phương thức thanh toán:</td>
+                                                <td>
+                                                    @Html.DropDownList("MaThanhToan")
+                                                </td>
+                                            </tr>
+                                        <tr style="height:40px">
+                                            <td>Ngày đặt:</td>
+                                            <td style="font-weight:bold"> @DateTime.Now.ToShortDateString() </td>
+                                        </tr>
+                                        <tr style="height:40px">
+                                            <td>Ngày đi</td>
+                                            <td style="font-weight:bold">
+                                                <input type="date" name="NgayDi" />
+                                            </td>
+                                        </tr>
+                                        <tr style="height:40px">
+                                            <td>Đồng ý đặt:</td>
+                                            <td style="font-weight:bold">
+                                                <a href="@Url.Action("Payment","GioHang")"><input type="submit" value="Thanh toán" class="btn btn-default" /></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </table>
+                            </div>
+                            </div>      
+                        </div>
+                    <!-- step one form html end -->
+                </div>
+                <div class="col-lg-4">
+                    <aside class="sidebar">
+                        <div class="widget-bg widget-support-wrap">
+                            <div class="icon">
+                                <i class="fas fa-phone-volume"></i>
+                            </div>
+                            <div class="support-content">
+                                <h5>BẠN CẦN HỖ TRỢ?</h5>
+                                <a href="telto:12345678" class="phone">+038 314 5754</a>
+                                <small>9AM - 5PM</small>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+

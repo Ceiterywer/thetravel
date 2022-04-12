@@ -1,0 +1,86 @@
+﻿@model PagedList.PagedList<DuLichVietNam.Models.KHACHSAN>
+@using PagedList.Mvc;
+@using DuLichVietNam.Models
+@helper Truncate(string input, int length)
+{
+    if (input.Length < length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length)<text>...</text>
+    }
+}
+@{
+    ViewBag.Title = "KStheoDiaDiem";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<main id="content" class="site-main">
+    <!-- Tittle html -->
+    <section class="inner-banner-wrap">
+        <div class="inner-baner-container" style="background-image: url('/Content/images/footer-bg.jpg'); background-size:initial">
+            <div class="container">
+                <div class="inner-banner-content">
+                    <h1 class="inner-title">TOUR</h1>
+                </div>
+            </div>
+        </div>
+        <div class="inner-shape" style="background-image:url('/Content/images/slider-pattern.png');"></div>
+    </section>
+    <!-- Tour section html start -->
+    <section class="package-section">
+        <div class="trip-search-section shape-search-section">
+            <div class="slider-shape" style="background-image:url('/Content/images/slider-pattern.png');"></div>
+        </div>
+        <div class="container">
+            <div class="package-inner">
+                <div class="row">
+                    @foreach (var ks in Model)
+                    {
+                        <div class="col-lg-4 col-md-6">
+                            <div class="package-wrap">
+                                <figure class="feature-image">
+                                    <a href="@Url.Action("ChiTietKS", "WebDuLich", new { id = ks.MaKS })">
+                                        <img src="~/Content/images/@ks.AnhKS" style="width:365px; height:305px;">
+                                    </a>
+                                </figure>
+                                <div class="package-price">
+                                    <h6>
+                                        <span style="font-family:Arial, Helvetica, sans-serif">@ks.DacDiem </span>
+                                    </h6>
+                                </div>
+                                <div class="package-content-wrap">
+                                    <div class="package-content">
+                                        <h3 style="margin-top: 20px;">
+                                            <span>@Truncate(ks.TenKS, 30)</span>
+                                        </h3>
+                                        <p>@Truncate(ks.TongQuan, 100)</p>
+                                        <div class="review-area">
+                                            <span class="review-text">(25 reviews)</span>
+                                            <div class="rating-start" title="Rated 5 out of 5">
+                                                <span style="width: 60%"></span>
+                                            </div>
+                                        </div>
+                                        <div class="btn-wrap">
+                                            <a href="@Url.Action("ChiTietKS", "WebDuLich", new { id = ks.MaKS })">
+                                                Chi Tiết
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="MenuTrang" style="margin:auto">
+            @Html.PagedListPager(Model, page => Url.Action("KhachSan", new { page = page }))
+        </div>
+    </section>
+
+    <!-- Tour html end -->
+</main>
+

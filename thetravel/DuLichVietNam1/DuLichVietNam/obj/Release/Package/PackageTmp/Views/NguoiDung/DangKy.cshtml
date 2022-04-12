@@ -1,0 +1,91 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="~/Content/images/vn-travel-icon.png">
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+    <!-- Fonts Awesome CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="~/Content/user_login_form/user-login-css/style.css">
+
+    <title>Du lịch Việt Nam</title>
+</head>
+<body class="img js-fullheight" style="background-image: url('/Content/user_login_form/user-login-images/bg.jpg'); background-position:center; background-repeat:no-repeat; background-size:cover;">
+    <section class="ftco-section">
+        <div class="container">
+            @using (Html.BeginForm())
+            {
+                @Html.ValidationSummary(true)
+                <div class="row justify-content-center">
+                    <div class="col-md-6 text-center mb-5">
+                        <a href="@Url.Action("Index", "WebDuLich")">
+                            <img class="white-logo" src="~/Content/images/vn-travel-logo-1.png" alt="logo">
+                        </a>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="login-wrap p-0">
+                            <form action="#" class="signin-form">
+                                <div class="form-group">
+                                    <input id="" type="text" class="form-control" placeholder="Họ và Tên" @Html.TextBox("HotenKH")
+                                    <p style="color:red">@ViewData["Loi1"]</p>
+                                </div>
+                                <div class="form-group">
+                                    <input id="" type="text" class="form-control" placeholder="Tên đăng nhập" @Html.TextBox("TenDN")
+                                    <p style="color:red">@ViewData["Loi2"]</p>
+                                </div>
+                                <div class="form-group">
+                                    <input id="" type="text" class="form-control" placeholder="Mật khẩu" @Html.Password("Matkhau")
+                                    <p style="color:red">@ViewData["Loi3"]</p>
+                                </div>
+                                <div class="form-group">
+                                    <input id="" type="text" class="form-control" placeholder="Nhập lại mật khẩu" @Html.Password("Matkhaunhaplai")
+                                    <p style="color:red">@ViewData["Loi4"]</p>
+                                </div>
+                                <div class="form-group">
+                                    <input id="" type="text" class="form-control" placeholder="Số điện thoại" @Html.TextBox("Dienthoai")
+                                    <p style="color:red">@ViewData["Loi5"]</p>
+                                </div>
+                                <div class="form-group">
+                                    <input id="" type="text" class="form-control" placeholder="Email" @Html.TextBox("Email")
+                                    <p style="color:red">@ViewData["Loi6"]</p>
+                                </div>
+                                <div class="form-group">
+                                    <input id="" type="text" class="form-control" placeholder="Địa chỉ" @Html.TextBox("DiaChi")
+                                    <p style="color:red">@ViewData["Loi7"]</p>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="form-control btn btn-primary submit px-3" href="@Url.Action("Index", "WebDuLich")">Đăng ký</button>
+                                </div>
+                                <p class="w-100 text-center">&mdash; Hoặc &mdash;</p>
+                                <div class="w-auto text-md-center">
+                                    <a href="@Url.Action("DangNhap", "NguoiDung")" style="color: #fff">Đăng nhập</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+   
+
+    <!-- *Scripts* -->
+    <script src="~/Content/user_login_form/user-login-js/jquery.min.js"></script>
+    <script src="~/Content/user_login_form/user-login-js/popper.js"></script>
+    <script src="~/Content/user_login_form/user-login-js/bootstrap.min.js"></script>
+    <script src="~/Content/user_login_form/user-login-js/main.js"></script>
+</body>
+</html>

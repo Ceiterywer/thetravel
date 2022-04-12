@@ -1,0 +1,62 @@
+﻿@model PagedList.PagedList<DuLichVietNam.Models.TINTUC>
+@using PagedList.Mvc;
+@using DuLichVietNam.Models
+@{
+    ViewBag.Title = "TinTuc";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<main id="content" class="site-main">
+    <!-- Tittle html -->
+    <section class="inner-banner-wrap">
+        <div class="inner-baner-container" style="background-image: url('/Content/images/footer-bg.jpg'); background-size:initial">
+            <div class="container">
+                <div class="inner-banner-content">
+                    <h1 class="inner-title">TIN TỨC</h1>
+                </div>
+            </div>
+        </div>
+        <div class="inner-shape" style="background-image:url('/Content/images/slider-pattern.png');"></div>
+    </section>
+    <!-- Tour section html start -->
+    <section class="package-section">
+        <div class="trip-search-section shape-search-section">
+            <div class="slider-shape" style="background-image:url('/Content/images/slider-pattern.png');"></div>
+        </div>
+        <div class="container">
+            <div class="package-inner">
+                <div class="row">
+                    @foreach (var tintuc in Model)
+                    {
+                        <div class="col-lg-4 col-md-6">
+                            <div class="package-wrap">
+                                <figure class="feature-image">
+                                    <a href="@Url.Action("ChiTietTT", "WebDuLich", new { id = tintuc.MaTT })">
+                                        <img src="~/Content/images/@tintuc.Anhbia" style="width:365px; height:305px;">
+                                    </a>
+                                </figure>
+                                <div class="package-content-wrap">
+                                    <div class="package-content">
+                                        <h3 style="margin-top: 20px;">
+                                            <span>@tintuc.TenTT</span>
+                                        </h3>
+                                        <div class="btn-wrap">
+                                            <a href="@Url.Action("ChiTietTT", "WebDuLich", new { id = tintuc.MaTT })">
+                                                Chi Tiết
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="MenuTrang" style="margin:auto">
+            @Html.PagedListPager(Model, page => Url.Action("TinTuc", new { page = page }))
+        </div>
+    </section>
+
+    <!-- Tour html end -->
+</main>
+

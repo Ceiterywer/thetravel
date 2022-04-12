@@ -1,0 +1,90 @@
+﻿@model DuLichVietNam.Models.TOUR
+
+@{
+    ViewBag.Title = "ChitietTour";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<body class="home">
+    <section class="inner-banner-wrap">
+        <div class="inner-baner-container" style="background-image: url('/Content/images/footer-bg.jpg'); background-size:initial">
+            <div class="container">
+                <div class="inner-banner-content">
+                    <h1 class="inner-title">QUẢN LÝ TOUR</h1>
+                </div>
+            </div>
+        </div>
+        <div class="inner-shape" style="background-image:url('/Content/images/slider-pattern.png');"></div>
+    </section>
+
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Tên Tour:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TenTour)
+            </dd>
+            <dt>
+                Thời Gian:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ThoiGian)
+            </dd>
+            <dt>
+                Xuất Phát:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.XuatPhat)
+            </dd>
+            <dt>
+                Giá Tour:
+            </dt>
+            <dd>
+                @String.Format("{0:0,0}", Model.GiaTour) VNĐ
+            </dd>
+            <dt>
+                Mô tả:
+            </dt>
+            <dd style="width:600px; text-align:justify">
+                @Html.DisplayFor(model => model.Mota)
+            </dd>
+            <dt>
+                Ảnh bìa:
+            </dt>
+            <dd>
+                <img src="@Url.Content("~/Content/images/"+ Model.Anhbia)" width="120px" />
+            </dd>
+            <dt>
+                Ngày cập nhất:
+            </dt>
+            <dd>
+                @string.Format("{0:dd/MM/yyyy}", Model.NgayCapNhat) VNĐ
+            </dd>
+            <dt>
+                Phương Tiện:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PHUONGTIEN.LoaiPT)
+            </dd>
+            <dt>
+                Khách Sạn:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.KHACHSAN.TenKS)
+            </dd>
+            <dt>
+                Lộ Trình:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.LoTrinh)
+            </dd>
+        </dl>
+    </div>
+    <p>
+        <div class="col-md-offset-2 col-md-10">
+            @Html.ActionLink("Điều Chỉnh", "Suatour", new { id = Model.MaTour })
+        </div>
+        @Html.ActionLink("Trở Về", "Tour")
+    </p>
+</body>
